@@ -17,6 +17,18 @@
 	<p>Full name:<span data-bind="text: fullName"></span></p>
 	<p><button data-bind="click: setToUberCoolname">Set to uber cool name</button></p>
 
+
+	<p>pre made list of names<p>
+	<select size="3" data-bind="options: listOfNames,
+								optionsText: function(item) 
+								{
+									return item.fulln();
+								},
+								value: selectedName">
+	</select>
+	<p><button data-bind="click: setFromList, 
+							enable: selectedName() != null">Set name from list</button></p>
+
 	<script type='text/javascript' src='./lib/knockout.debug.js'></script>
 	<script type='text/javascript' src='./index.js'></script>
 </body>
