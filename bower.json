@@ -1,0 +1,23 @@
+{
+  "name": "sandbox",
+  "main": "index.js",
+  "homepage": "https://github.com/wormiii/sandbox",
+  "authors": [
+    "Bryan Daniels <wormiii@hotmail.com>"
+  ],
+  "description": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "knockout": "~3.4.0",
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.6"
+  }
+}
