@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  	<meta charset="utf-8">
+
+  	<title>The HTML5 Herald</title>
+  	<meta name="description" content="The HTML5 Herald">
+  	<meta name="author" content="SitePoint">
+
+  	<link rel="stylesheet" href="./index.css?v=1.0">
+</head>
+
+<body>
+	<p>First name:<input data-bind="value: firstName"></input></p>
+	<p>Last name:<input data-bind="value: lastName"></input></p>
+	<p>Full name:<span data-bind="text: fullName"></span></p>
+	<p><button data-bind="click: setToUberCoolname">Set to uber cool name</button></p>
+
+
+	<p>pre made list of names<p>
+	<select size="3" data-bind="options: listOfNames,
+								optionsText: function(item) 
+								{
+									return item.fulln();
+								},
+								value: selectedName">
+	</select>
+	<p><button data-bind="click: setFromList, 
+							enable: selectedName() != null">Set name from list</button></p>
+
+	<script type='text/javascript' src='./dist/knockout.debug.js'></script>
+	<script type='text/javascript' src='./dist/index.js'></script>
+</body>
+</html>
+
