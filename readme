@@ -1,3 +1,5 @@
-install node.js
+install node.js package manager
 	https://nodejs.org/en/download/
-npm install -g grunt-cli
+
+run setup.sh
+

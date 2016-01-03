@@ -1,5 +1,6 @@
 "use strict";
 
+// index.html scripts
 
 function preMadeName(firstName, lastName) 
 {

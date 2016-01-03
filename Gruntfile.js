@@ -1,15 +1,20 @@
 module.exports = function(grunt) {
 
+  grunt.registerTask('speak', function() 
+    {
+      console.log("I'm speaking");
+    });
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        beautify: false
       },
       build: {
         src: 'js/*.js',
-        dest: 'dist/*.min.js'
+        dest: 'dist/*.js'
       }
     }
   });
@@ -19,5 +24,5 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('default', ['uglify']);
-  
 };
+
