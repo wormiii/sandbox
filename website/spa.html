@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>SPA - test MAIN</title>
+
+  </head>
+  <body>
+    <script>
+    /*
+      var link = document.querySelector('link[var="import1html"]');
+      var content = link.import;
+
+      // Grab DOM from warning.html's document.
+      var el = content.querySelector('.warning');
+      var el2 = content.querySelector('import1html');
+
+      document.body.appendChild(content);
+      document.body.appendChild(el.cloneNode(true));
+      */
+    </script>
+
+
+    <h1>Hello, world!</h1>
+
+    <p><span data-bind="text: firstName"></span></p>
+    <p><span>----------------------------</span></p>
+    <p>
+      <div id="frameHolder">
+      </div>
+    </p>
+    <p><span>----------------------------</span></p>
+    <p><span data-bind="text: firstName"></span></p>
+
+
+
+
+    <!-- references -->
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+
+    <!-- page imports -->
+    <link var="import1" rel="import" href="./import1.html" >
+    <link var="import2" rel="import" href="./import2.html" >
+    <script type='text/javascript' src="./spa.js"></script>
+    
+  </body>
+</html>
+
+
+
