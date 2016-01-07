@@ -11,12 +11,13 @@ function multi1ViewModel()
     {
         sessionStorage.clear();
         sessionStorage.setItem("name", "Bryan");
+        var vm = new characterViewModel();
+        sessionStorage.setItem("character", vm.SaveToSession());
         location.href = "multi2.html";
-//        window.open("multi2.html");
-
-    //	self.lastName("Daniels");
     }
 
+
+    /*
     self.listOfNames = ko.observableArray(
     	[
             {fn: "aaa", ln: "bbb"},
@@ -27,6 +28,7 @@ function multi1ViewModel()
     self.fullName = ko.pureComputed(function() {
         return self.firstName() + " " + self.lastName();
     }, self);
+    */
 };
 
 ko.applyBindings(new multi1ViewModel());
