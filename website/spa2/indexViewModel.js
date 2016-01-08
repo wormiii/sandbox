@@ -1,7 +1,7 @@
 "use strict";
 
-define(['knockout', 'text!./indexViewModel.html'], function(ko, htmlString) {
-function indexViewModel(params, componentInfo)
+define(['knockout'], function(ko) {
+function indexViewModel(params)
 {
 	var self = this;
 
@@ -9,6 +9,5 @@ function indexViewModel(params, componentInfo)
     self.firstName = ko.observable('Bryan');
 }
 
-return { createViewModel: indexViewModel, template: htmlString };
-//return indexViewModel;
+return { viewModel: indexViewModel };
 });

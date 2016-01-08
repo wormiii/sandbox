@@ -16,34 +16,36 @@ requirejs.config({
     }
 });
 
-/*
-ko.components.register(
-    'girlfriend', 
-    {
-        viewModel: { require: './justname' },
-        template: { require: 'text!./justname.html' }
-    }         
-);
 
-ko.components.register(
-    'mainview', 
-    {
-        viewModel: { require: './indexViewModel' },
-        template: { require: 'text!./indexViewModel.html' }
-    }         
-);
-*/
+requirejs(['knockout'], function(ko) {
+    var self = this;
 
-ko.components.register(
-    'mainview2', 
-    {
-        require: './indexViewModel'
-    }         
-);
+    ko.components.register(
+        'girlfriend', 
+        {
+            viewModel: { require: './justname' },
+            template: { require: 'text!./justname.html' }
+        }         
+    );
 
+    ko.components.register(
+        'mom', 
+        {
+            viewModel: { require: './mom' },
+            template: { require: 'text!./mom.html' }
+        }         
+    );
 
-ko.applyBindings();
+    ko.components.register(
+        'mainview', 
+        {
+            viewModel: { require: './indexViewModel' },
+            template: { require: 'text!./indexViewModel.html' }
+        }         
+    );
 
+    ko.applyBindings();
+});
 
 
 
