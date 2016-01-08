@@ -8,16 +8,17 @@ requirejs.config({
     }
 });
 
-ko.components.register(
-    'mainview', 
-    {
-        require: './indexViewModel'
-    }         
-);
+requirejs(['knockout'], function(ko) {
+    var self = this;
 
+    ko.components.register(
+        'mainview', 
+        {
+            require: './indexViewModel'
+        }         
+    );
 
-ko.applyBindings();
-
-
+    ko.applyBindings();
+});
 
 
