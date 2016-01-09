@@ -1,6 +1,16 @@
-	.basicborder
-	{
-		border-color: #ffff00;
-	    border-style: solid;
-	    border-width: 5px;
-	}
+#mom .basicborder
+{
+	border-color: #ffff00;
+    border-style: solid;
+    border-width: 5px;
+}
+#mom .other1
+{
+	font-size: 20px;
+	color: #ff00ff;
+}
+#mom .other2
+{
+	font-size: 92px;
+	color: #00ffff;
+}
