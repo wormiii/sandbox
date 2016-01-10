@@ -1,6 +1,11 @@
 <div>
 	<h1>New character</h1>
 	<p>My first name is: <span data-bind='text: firstName'></span></p>
+	<p><button data-bind="click: selectGold">gold</button></p>
+	<p><button data-bind="click: selectXp">XP</button></p>
+	<p><button data-bind="click: selectHealth">Health</button></p>
+	<p><button data-bind="click: selectSmarts">Smarts</button></p>
+	<p><button data-bind="click: selectCats">Cats</button></p>
 	<h1>People in my life:</h1>
 	<div>
 		<girlfriend params="label: 'gold', defaultValue: 2, theunits: 'pieces'"></girlfriend>
@@ -8,6 +13,8 @@
 		<girlfriend params="label: 'health', defaultValue: 12, theunits: 'points'"></girlfriend>
 		<girlfriend params="label: 'smarts', defaultValue: 6"></girlfriend>
 		<girlfriend params="label: 'cats', defaultValue: 1234, theunits: 'purs'"></girlfriend>
+		<!--
 		<mom></mom>
+	-->
 	</div>
 </div>

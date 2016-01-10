@@ -7,6 +7,7 @@ function justNameViewModel(params)
 	self.label = ko.observable(params.label)
     self.girlfriend = ko.observable(params.defaultValue);
     self.units = ko.observable(params.theunits);
+    self.visible = ko.observable(true);
 }
 
 return { viewModel: justNameViewModel };
