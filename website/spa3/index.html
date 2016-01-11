@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Battlestations Character Generator</title>
+  </head>
+<body>
+
+  <div>
+    <p><button data-bind="click: page1click">page 1</button></p>
+    <p><button data-bind="click: page2click">page 2</button></p>
+    <p><button data-bind="click: page3click">page 3</button></p>
+    <div data-bind="visible: page1visible">
+      <span>this is page 1</span>
+      <span data-bind="text: stuff1"></span>
+    </div>
+    <div data-bind="visible: page2visible">
+      <span>this is page 2</span>
+      <span data-bind="text: stuff2"></span>
+    </div>
+    <div data-bind="visible: page3visible">
+      <span>this is page 3</span>
+      <span data-bind="text: stuff3"></span>
+    </div>
+  </div>
+
+
+  <!-- global imports -->
+  <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+  <script type='text/javascript' src="./index.js"></script>
+</body>
+</html>
+
+
+
