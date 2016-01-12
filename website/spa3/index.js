@@ -1,122 +1,64 @@
 "use strict";
 
-function vmvm()
-{
-    var self = this;
-
-    self.selectpage = function(index)
-    {
-        self.pages()[index].selectthispage();
+requirejs.config({
+    baseUrl: '',
+    paths: {
+        knockout: 'https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min',
+        lodash: 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min',
+        text: 'https://cdnjs.cloudflare.com/ajax/libs/require-text/2.0.12/text.min',
+        jquery: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min'
     }
+});
 
-
-
-    self.pages = ko.observableArray([
-        new pagevm(self, 0),
-        new pagevm(self, 1),
-        new pagevm(self, 2)
-    ]);
-}
-
-var vm = new vmvm();
-
-function pagevm(mainvm, index)
+require(
+['knockout', 'lodash', './indexViewModel', "./page1", "./page2"], 
+function(ko, _, indexViewModelctor, page1vmctor, page2vmctor) 
 {
-    var self = this;
-    self.mainvm = mainvm;
-    self.index = index;
-    self.visible = ko.observable(false);
-    self.label = ko.observable();
-    self.text = ko.observable();
+    var vm = new indexViewModelctor();
 
-    self.selectthispage = function()
+    var selectpage = function(index)
     {
-        _.forEach(
-            self.mainvm.pages(), 
-            function(item) 
+        _.forEach(vm.pages(),
+            function(item)
             {
                 item.visible(false);
             }
         );
-        var toshowitem =
-            _.find(
-                self.mainvm.pages(), 
-                function(item) 
-                {
-                    return item.index == self.index;
-                }
-            );
-        toshowitem.visible(true);    
+        var itemtoshow = _.find(vm.pages(),
+            function(item)
+            {
+                return item.index == index;
+            }
+        );
+        itemtoshow.visible(true);
     }
-}
 
+    vm.pages().push(new page1vmctor(vm, 0, selectpage));
+    vm.pages().push(new page2vmctor(vm, 1, selectpage));
 
-ko.components.register('page1stuff', 
-{
-    viewModel: 
+    ko.components.register('page1stuff', 
     {
-        createViewModel: function(params, componentInfo) 
+        viewModel: 
         {
-            var index = 0;
-            var pagevm = vm.pages()[index];
-            pagevm.label("yay this is page " + index);
-            pagevm.text("data " + index);
-            return pagevm;
-        }
-    },
-    template:
-        '<div data-bind="visible: visible">\
-            <span>a1a1a1</span>\
-            <span data-bind="text: label"></span>\
-            <span data-bind="text: text"></span>\
-        </div>'
-});
+            createViewModel: function(params, componentInfo) 
+            {
+                return vm.pages()[0];
+            }
+        },
+        template: {require: "text!./page1.html" }
+    });
 
-
-ko.components.register('page2stuff', 
-{
-    viewModel: 
+    ko.components.register('page2stuff', 
     {
-        createViewModel: function(params, componentInfo) 
+        viewModel: 
         {
-            var index = 1;
-            var pagevm = vm.pages()[index];
-            pagevm.label("woo this is page " + index);
-            pagevm.text("info " + index);
-            return pagevm;
-        }
-    },
-    template:
-        '<div data-bind="visible: visible">\
-            <span>b2b2b2</span>\
-            <span data-bind="text: label"></span>\
-            <span data-bind="text: text"></span>\
-        </div>'
+            createViewModel: function(params, componentInfo) 
+            {
+                return vm.pages()[1];
+            }
+        },
+        template: {require: "text!./page2.html" }
+    });
+
+    ko.applyBindings(vm);
 });
-
-ko.components.register('page3stuff', 
-{
-    viewModel: 
-    {
-        createViewModel: function(params, componentInfo) 
-        {
-            var index = 2;
-            var pagevm = vm.pages()[index];
-            pagevm.label("squee this is page " + index);
-            pagevm.text("value " + index);
-            return pagevm;
-        }
-    },
-    template:
-        '<div data-bind="visible: visible">\
-            <span>c3c3c3</span>\
-            <span data-bind="text: label"></span>\
-            <span data-bind="text: text"></span>\
-        </div>'
-});
-
-
-
-
-ko.applyBindings(vm);
-

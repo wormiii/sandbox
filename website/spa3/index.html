@@ -3,15 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>Battlestations Character Generator</title>
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.min.js"></script>
   </head>
 <body>
 
   <div>
     <p>---------------------</p>
-    <p><button data-bind="click: function(){ selectpage(0); }">page 1</button></p>
-    <p><button data-bind="click: function(){ selectpage(1); }">page 2</button></p>
-    <p><button data-bind="click: function(){ selectpage(2); }">page 3</button></p>
-
+    <p><button data-bind="click: function(){ pages()[0].selectpage(); }">page 1</button></p>
+    <p><button data-bind="click: function(){ pages()[1].selectpage(); }">page 2</button></p>
 
     <p>---------------------</p>
     <page1stuff></page1stuff>
@@ -21,9 +20,7 @@
   </div>
 
 
-  <!-- global imports -->
-  <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
-  <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+  <!-- imports -->
   <script type='text/javascript' src="./index.js"></script>
 </body>
 </html>
