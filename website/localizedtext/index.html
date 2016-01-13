@@ -1,0 +1,19 @@
+<html>
+	<head>
+    	<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.min.js"></script>
+	</head>
+	<body>
+		<p>--literal string--</p>
+		<p><span data-bind="localizedtext: 'oreo'"></span></p>
+		<p><span data-bind="localizedtext: 'bryan'"></span></p>
+		<p>--literal from binding--</p>
+		<p><span data-bind="localizedtext: stuff1"></span></p>
+		<p><span data-bind="localizedtext: stuff2"></span></p>
+		<p>--errors--</p>
+		<p><span data-bind="localizedtext: 'errors.aaa'"></span></p>
+		<p><span data-bind="localizedtext: 'errors.bbb'"></span></p>
+		<p><span data-bind="localizedtext: 'errors.ccc'"></span></p>
+		<p>----</p>
+    	<script type='text/javascript' src="./index.js"></script>
+	</body>
+</html>
